@@ -1,0 +1,80 @@
+# Default configuration for ModuLink-Py release system
+
+# AI Configuration
+ai:
+  endpoint: "http://localhost:11434"  # Ollama default endpoint
+  model: "codellama:7b"               # Model to use for content generation
+  timeout: 30                         # Request timeout in seconds
+  max_tokens: 2000                    # Maximum tokens to generate
+  temperature: 0.3                    # Creativity level (0.0-1.0)
+  fallback_on_error: true             # Use templates if AI fails
+
+# Git Configuration  
+git:
+  auto_commit: true                   # Automatically create release commit
+  auto_tag: true                      # Automatically create git tag
+  tag_prefix: "v"                     # Prefix for git tags
+  require_clean_working_tree: true    # Require clean git state
+
+# Version Management
+version:
+  files:                              # Files to update with new version
+    - "pyproject.toml"
+    - "setup.py" 
+    - "__init__.py"
+  validate_progression: true          # Validate semantic version progression
+
+# Release Content
+content:
+  release_notes_file: "release-notes.md"
+  changelog_file: "CHANGELOG.md"
+  create_missing_files: true
+  backup_existing_files: false
+
+# Output Configuration
+output:
+  verbose: true                       # Enable verbose logging
+  format: "text"                      # Default output format (text|json)
+  show_commit_details: true           # Show individual commit details
+
+# Automation Rules
+automation:
+  patch_release:
+    auto_approve: true                # Auto-approve patch releases
+    max_commits: 10                   # Max commits for auto-approval
+    allowed_types: ["fix", "docs", "chore", "style"]
+  
+  minor_release:
+    auto_approve: false               # Require approval for minor releases
+    allowed_types: ["feat", "fix", "docs", "chore", "style", "refactor"]
+  
+  major_release:
+    auto_approve: false               # Always require approval for major releases
+    require_explicit_confirmation: true
+
+# Plugin Configuration
+plugins:
+  github:
+    enabled: false                    # Enable GitHub integration
+    create_release: true              # Create GitHub release
+    upload_assets: false              # Upload release assets
+  
+  pypi:
+    enabled: false                    # Enable PyPI publishing
+    repository: "pypi"                # Repository to publish to
+    
+  notifications:
+    enabled: false                    # Enable notifications
+    channels: []                      # Notification channels
+
+# Quality Gates
+quality:
+  require_tests_pass: true            # Require tests to pass
+  require_lint_pass: true             # Require linting to pass
+  min_coverage: 80                    # Minimum test coverage percentage
+  
+# Advanced Features
+advanced:
+  parallel_operations: true           # Enable parallel processing
+  cache_git_analysis: true            # Cache git analysis results
+  retry_failed_operations: 3          # Number of retries for failed operations

@@ -1,0 +1,46 @@
+# AI Release Automation - Development Dependencies
+# Additional packages needed for development, testing, and code quality
+
+# Core dependencies (install with: pip install -r requirements.txt)
+-r requirements.txt
+
+# Testing Framework
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+
+# Code Quality and Formatting
+black>=22.0.0
+flake8>=5.0.0
+isort>=5.10.0
+mypy>=0.991
+
+# Pre-commit Hooks
+pre-commit>=2.20.0
+
+# Documentation
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.2.0
+myst-parser>=0.18.0
+
+# Development Tools
+ipython>=8.0.0
+ipdb>=0.13.0
+
+# AI Dependencies for Testing
+openai>=1.0.0
+anthropic>=0.3.0
+ollama>=0.1.0
+
+# GitHub Integration for Testing
+pygithub>=1.58.0
+github3.py>=3.2.0
+
+# Build Tools
+build>=0.8.0
+twine>=4.0.0
+
+# Security Scanning
+bandit>=1.7.0
+safety>=2.0.0

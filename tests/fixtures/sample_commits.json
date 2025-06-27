@@ -1,0 +1,20 @@
+[
+  {
+    "hash": "abc123",
+    "message": "feat: add new chain visualization",
+    "type": "feat",
+    "scope": "visualization",
+    "breaking": false,
+    "author": "developer@example.com",
+    "date": "2025-06-27T10:00:00Z"
+  },
+  {
+    "hash": "def456",
+    "message": "fix: resolve memory leak in analyzer",
+    "type": "fix",
+    "scope": "analyzer",
+    "breaking": false,
+    "author": "developer@example.com",
+    "date": "2025-06-27T09:00:00Z"
+  }
+]

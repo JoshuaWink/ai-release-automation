@@ -1,0 +1,31 @@
+# AI Release Automation - Core Dependencies
+# Minimum required packages for the release automation system
+
+# ModuLink Chain Architecture
+modulink-py>=1.0.0
+
+# Configuration and Data Handling
+pyyaml>=6.0
+jinja2>=3.0.0
+
+# Git Operations
+gitpython>=3.1.0
+
+# Version Management
+packaging>=21.0
+semantic-version>=2.10.0
+
+# CLI Interface
+click>=8.0.0
+
+# HTTP Requests (for AI APIs and GitHub integration)
+requests>=2.28.0
+
+# Optional AI Dependencies (uncomment as needed)
+# openai>=1.0.0              # OpenAI GPT models
+# anthropic>=0.3.0           # Anthropic Claude models
+# ollama>=0.1.0              # Ollama local models
+
+# Optional GitHub Integration (uncomment if needed)
+# pygithub>=1.58.0           # GitHub API integration
+# github3.py>=3.2.0          # Alternative GitHub API client

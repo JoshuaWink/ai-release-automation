@@ -1,0 +1,18 @@
+# Simple Project Configuration Example
+project:
+  name: "my-project"
+  repository_url: "https://github.com/username/my-project"
+  main_branch: "main"
+
+version_files:
+  - "pyproject.toml"
+  - "setup.py"
+
+release:
+  create_github_release: true
+  update_changelog: true
+  tag_format: "v{version}"
+
+ai_config:
+  model_type: "template"  # Start with template-only mode
+  fallback_to_templates: true

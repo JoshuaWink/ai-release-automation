@@ -1,0 +1,194 @@
+# Conventional Commit Standards for ModuLink-Py
+
+# Commit Message Format
+format: "{type}({scope}): {description}"
+
+# Allowed commit types
+types:
+  feat:
+    description: "A new feature or enhancement"
+    examples:
+      - "feat(auth): add user authentication middleware"
+      - "feat(cli): implement new visualization command"
+    increment: "minor"
+    
+  fix:
+    description: "A bug fix"
+    examples:
+      - "fix(chain): resolve memory leak in middleware"
+      - "fix(docs): correct API reference examples"
+    increment: "patch"
+    
+  docs:
+    description: "Documentation only changes"
+    examples:
+      - "docs(readme): update installation instructions"
+      - "docs(api): add chain middleware examples"
+    increment: "patch"
+    
+  style:
+    description: "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+    examples:
+      - "style(core): format code with black"
+      - "style(tests): organize import statements"
+    increment: "patch"
+    
+  refactor:
+    description: "A code change that neither fixes a bug nor adds a feature"
+    examples:
+      - "refactor(chain): simplify link execution logic"
+      - "refactor(middleware): extract common validation"
+    increment: "patch"
+    
+  test:
+    description: "Adding missing tests or correcting existing tests"
+    examples:
+      - "test(chain): add integration tests for middleware"
+      - "test(cli): increase coverage for visualization"
+    increment: "patch"
+    
+  chore:
+    description: "Changes to the build process, auxiliary tools, and libraries"
+    examples:
+      - "chore(deps): update pytest to 8.3.5"
+      - "chore(release): prepare version 2.1.0"
+    increment: "patch"
+
+# Common scopes (component areas)
+scopes:
+  core: "Core chain and link functionality"
+  middleware: "Middleware system and implementations"
+  cli: "Command-line interface tools"
+  docs: "Documentation system and generators"
+  tests: "Test infrastructure and utilities"
+  release: "Release automation and tooling"
+  config: "Configuration management"
+  api: "Public API interfaces"
+  examples: "Example code and demonstrations"
+
+# Message rules
+rules:
+  max_subject_length: 72
+  max_body_line_length: 100
+  require_scope_for: ["feat", "fix", "refactor"]
+  require_body_for: ["feat", "fix"]
+  
+  subject_rules:
+    case: "lowercase"  # First letter of description
+    mood: "imperative"  # "add" not "added" or "adds"
+    punctuation: "none"  # No period at end
+    
+  body_rules:
+    wrap_at: 72
+    explain_what_and_why: true
+    include_breaking_changes: true
+
+# Breaking changes
+breaking_changes:
+  indicator: "!"  # feat!: or BREAKING CHANGE: in body
+  require_explanation: true
+  examples:
+    - "feat(api)!: remove deprecated chain.run_sync method"
+    - "fix(core)!: change middleware interface signature"
+
+# Issue linking
+issue_linking:
+  format: "#{issue_number}"
+  patterns:
+    closes: ["closes", "fixes", "resolves"]
+    references: ["refs", "references", "see"]
+  examples:
+    - "feat(auth): add OAuth support\n\nCloses #123"
+    - "fix(middleware): resolve timing issue\n\nRefs #456"
+
+# Branch naming conventions (for context extraction)
+branch_naming:
+  format: "{type}-{issue_number}-{description}"
+  separator: "-"
+  max_description_words: 4
+  examples:
+    - "feat-123-user-authentication"
+    - "fix-456-memory-leak-middleware"
+    - "docs-789-api-reference-update"
+
+# AI generation guidelines
+ai_guidelines:
+  context_sources:
+    - "Git diff analysis"
+    - "Branch name parsing"
+    - "GitHub issue context (if available)"
+    - "File path analysis"
+    - "Code comment analysis"
+    
+  prompt_structure:
+    - "Analyze code changes semantically"
+    - "Identify affected components/scope"
+    - "Determine appropriate commit type"
+    - "Generate concise, clear description"
+    - "Follow conventional commit format"
+    
+  fallback_strategy:
+    - "Use template-based generation"
+    - "Focus on file-level changes"
+    - "Apply conservative classification"
+    - "Ensure format compliance"
+
+# Validation rules
+validation:
+  required_fields: ["type", "description"]
+  optional_fields: ["scope", "body", "footer"]
+  
+  format_checks:
+    - "Conventional commit pattern match"
+    - "Subject length validation"
+    - "Body line length validation"
+    - "Breaking change format validation"
+    
+  semantic_checks:
+    - "Type matches change content"
+    - "Scope aligns with affected files"
+    - "Description clarity and accuracy"
+    - "Breaking change justification"
+
+# Examples by category
+examples:
+  feature_additions:
+    - "feat(chain): add async middleware support"
+    - "feat(cli): implement chain visualization export"
+    - "feat(docs): add interactive documentation browser"
+    
+  bug_fixes:
+    - "fix(middleware): resolve race condition in timing middleware"
+    - "fix(chain): handle empty context gracefully"
+    - "fix(cli): correct argument parsing for visualization"
+    
+  documentation:
+    - "docs(readme): update quick start guide"
+    - "docs(api): add chain composition examples"
+    - "docs(middleware): document custom middleware creation"
+    
+  refactoring:
+    - "refactor(core): extract common validation logic"
+    - "refactor(middleware): simplify middleware registration"
+    - "refactor(tests): organize test utilities"
+    
+  breaking_changes:
+    - "feat(api)!: change Chain constructor signature"
+    - "refactor(middleware)!: update middleware interface"
+    - "fix(core)!: correct context passing behavior"
+
+# Quality indicators
+quality_indicators:
+  good_commit:
+    - "Clear, specific description"
+    - "Appropriate type selection"
+    - "Correct scope identification"
+    - "Follows format conventions"
+    - "Links to relevant issues"
+    
+  poor_commit:
+    - "Vague descriptions ('fix stuff', 'update code')"
+    - "Wrong type classification"
+    - "Missing scope for complex changes"
+    - "Format violations"
+    - "No context or explanation"
