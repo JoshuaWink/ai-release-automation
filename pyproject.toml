@@ -7,10 +7,10 @@ name = "ai-release-automation"
 version = "1.0.0"
 description = "AI-driven release automation system using ModuLink chains"
 authors = [
-    {name = "Joshua Wink", email = "joshua@example.com"}
+    {name = "Orchestrate, LLC", email = "contact@orchestrate.com"}
 ]
 readme = "README.md"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 keywords = [
     "release",
     "automation", 
@@ -25,7 +25,7 @@ keywords = [
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -74,11 +74,11 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/joshuawink/ai-release-automation"
-Repository = "https://github.com/joshuawink/ai-release-automation"
-Documentation = "https://github.com/joshuawink/ai-release-automation/blob/main/docs/"
-Issues = "https://github.com/joshuawink/ai-release-automation/issues"
-Changelog = "https://github.com/joshuawink/ai-release-automation/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/orchestrate-solutions/ai-release-automation"
+Repository = "https://github.com/orchestrate-solutions/ai-release-automation"
+Documentation = "https://github.com/orchestrate-solutions/ai-release-automation/blob/main/docs/"
+Issues = "https://github.com/orchestrate-solutions/ai-release-automation/issues"
+Changelog = "https://github.com/orchestrate-solutions/ai-release-automation/blob/main/CHANGELOG.md"
 
 [project.scripts]
 ai-release = "release_system.cli.release_cli:main"

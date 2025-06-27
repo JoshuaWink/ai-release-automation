@@ -6,7 +6,7 @@ Thank you for your interest in contributing! This guide will help you get starte
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/joshuawink/ai-release-automation.git
+   git clone https://github.com/orchestrate-solutions/ai-release-automation.git
    cd ai-release-automation
    ```
 
